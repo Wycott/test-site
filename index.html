@@ -5,7 +5,6 @@
   <title>Wycott's World</title>
 
   <style>
-    /* Full‑screen gradient background */
     body {
       margin: 0;
       height: 100vh;
@@ -18,11 +17,30 @@
       overflow: hidden;
     }
 
-    /* Floating emoji animation */
-    .emoji {
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .emoji1,
+    .emoji2 {
       font-size: 4rem;
-      animation: float 3s ease-in-out infinite;
       display: inline-block;
+    }
+
+    /* Upward float */
+    .emoji1 {
+      animation: float 3s ease-in-out infinite;
     }
 
     @keyframes float {
@@ -31,19 +49,17 @@
       100% { transform: translateY(0); }
     }
 
-    /* Fade-in effect for the heading */
-    h1 {
-      font-size: 3rem;
-      text-align: center;
-      opacity: 0;
-      animation: fadeIn 1.5s forwards;
+    /* Downward sink – forced to win */
+    .emoji2 {
+      animation: sink 3s ease-in-out infinite !important;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
+    @keyframes sink {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(15px); }
+      100% { transform: translateY(0); }
     }
 
-    /* Subtle sparkle effect */
     .sparkle {
       position: absolute;
       width: 6px;
@@ -63,9 +79,9 @@
 
 <body>
   <h1>
-    <span class="emoji">😀</span>
+    <span class="emoji1">🐯</span>
     Hello from Wycott's World
-    <span class="emoji">😀</span>
+    <span class="emoji2">🐯</span>
   </h1>
 
   <script>
