@@ -1,9 +1,84 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Wycott's World</title>
-  </head>
-  <body>
-    <h1>😀Hello from Wycott's World😀</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wycott's World</title>
+
+  <style>
+    /* Full‑screen gradient background */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4b79a1, #283e51);
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Floating emoji animation */
+    .emoji {
+      font-size: 4rem;
+      animation: float 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Fade-in effect for the heading */
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Subtle sparkle effect */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: sparkle 4s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0%   { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-120vh) scale(0.2); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>
+    <span class="emoji">😀</span>
+    Hello from Wycott's World
+    <span class="emoji">😀</span>
+  </h1>
+
+  <script>
+    // Create floating sparkles for subtle motion
+    for (let i = 0; i < 20; i++) {
+      const s = document.createElement("div");
+      s.className = "sparkle";
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.bottom = "-10vh";
+      s.style.animationDelay = Math.random() * 4 + "s";
+      s.style.animationDuration = 3 + Math.random() * 3 + "s";
+      document.body.appendChild(s);
+    }
+  </script>
+</body>
 </html>
